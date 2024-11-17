@@ -24,7 +24,7 @@ fun main() {
     val tarea2 = Tarea("Examen2", true, LocalDate.now(), Tarea.Urgencia.MEDIO, null)
     val tarea3 = Tarea("Examen3", false, LocalDate.now(), Tarea.Urgencia.ALTO, null)
 
-    val cita = Cita("Examen", false, LocalDate.now(), "mikasa", null)
+    val cita = Cita("Cita", false, LocalDate.now(), "mikasa", null)
     val cita2 = Cita("citadel", true, LocalDate.now(), "TUKASA", personas)
 
     val pago = Pago("PagatelaCuenta", false, 100.00, LocalDate.now(), "BIZUM")
@@ -39,12 +39,48 @@ fun main() {
     actividades.add(pago)
     actividades.add(pago2)
 
-    val actividadesUrgentes = actividades.filtrar { actividad ->
+    var pagos = ArrayList<Pago>()
+    pagos.add(pago)
+    pagos.add(pago2)
+
+    val tareasUrgentes = actividades.filtrar { actividad ->
         actividad is Tarea && actividad.urgencia == Tarea.Urgencia.ALTO
     }
 
-    actividadesUrgentes.forEach{actividad: Actividad->
+    val citasDeAna =
+        actividades.filtrar { actividad -> actividad is Cita && actividad.personas?.contains(persona) ?: false }
+
+    val pagosRealizados =
+        actividades.filtrar { actividad -> actividad is Pago && actividad.completado }
+
+    tareasUrgentes.forEach { actividad: Actividad ->
         println(actividad.mostrarDetalle())
     }
+
+    citasDeAna.forEach { actividad -> println(actividad.mostrarDetalle()) }
+
+    pagosRealizados.forEach { actividad -> println(actividad.mostrarDetalle()) }
+
+    val totalPagosCompletados =
+        pagos.calcularTotal { pago -> if (pago.completado) pago.cantidad else 0.0 }
+    val totalPagos2024 = pagos.calcularTotal { pago ->
+        if (pago.fecha_pago.isBefore(
+                LocalDate.of(
+                    2025,
+                    1,
+                    1
+                )
+            ) && pago.fecha_pago.isAfter(
+                LocalDate.of(
+                    2023,
+                    12,
+                    31
+                )
+            )
+        ) pago.cantidad
+        else 0.00
+    }
+    println(totalPagosCompletados)
+println(totalPagos2024)
 
 }
