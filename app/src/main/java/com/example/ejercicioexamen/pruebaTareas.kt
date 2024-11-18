@@ -2,6 +2,8 @@ package com.example.ejercicioexamen
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.ejercicioexamen.extensions.calcularTotal
+import com.example.ejercicioexamen.extensions.filtrar
 import com.example.ejercicioexamen.models.Actividad
 import com.example.ejercicioexamen.models.Cita
 import com.example.ejercicioexamen.models.Pago

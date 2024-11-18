@@ -1,4 +1,4 @@
-package com.example.ejercicioexamen
+package com.example.ejercicioexamen.extensions
 
 import com.example.ejercicioexamen.models.Actividad
 import com.example.ejercicioexamen.models.Pago
