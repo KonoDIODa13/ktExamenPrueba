@@ -5,28 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="titulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.005" />
 
     <CalendarView
         android:id="@+id/cvCalendario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791"
-        android:visibility="invisible"/>
+        app:layout_constraintVertical_bias="0.4" />
+
     <Button
         android:id="@+id/crear"
         android:layout_width="wrap_content"
@@ -35,6 +37,115 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCalendario"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="Nombre:"
+        app:layout_constraintBottom_toTopOf="@+id/cvCalendario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <RadioGroup
+        android:id="@+id/rgCompletado"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:minWidth="300dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15">
+
+        <RadioButton
+            android:id="@+id/rbCompletadoTrue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="135dp"
+            android:height="50dp"
+            android:text="Si Completado" />
+
+        <RadioButton
+            android:id="@+id/rbCompletadoFalse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
+            android:height="50dp"
+            android:text="No Completado" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgUrgencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="210dp"
+        android:minHeight="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/crear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCalendario"
+        app:layout_constraintVertical_bias="0.45">
+
+        <RadioButton
+            android:id="@+id/rbUgenciaBaja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BAJO" />
+
+        <RadioButton
+            android:id="@+id/rbUrgenciaMedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MEDIA" />
+
+        <RadioButton
+            android:id="@+id/rbUrgenciaAlta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ALTO" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/tvCompletado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Completado?"
+        app:layout_constraintBottom_toTopOf="@+id/rgCompletado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
+    <TextView
+        android:id="@+id/Fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        app:layout_constraintBottom_toTopOf="@+id/cvCalendario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgCompletado" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Nivel de Urgencia?"
+        app:layout_constraintBottom_toTopOf="@+id/rgUrgencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvCalendario" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
