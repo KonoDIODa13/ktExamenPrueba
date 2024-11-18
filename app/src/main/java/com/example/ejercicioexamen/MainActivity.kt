@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         crearTarea = findViewById(R.id.rbCrearTarea)
         crearCita = findViewById(R.id.rbCrearCita)
         crearPago = findViewById(R.id.rbCrearPago)
-        tvResultado = findViewById(R.id.tvResultato)
 
         grupoRadios.setOnCheckedChangeListener { rg, idRadioButton ->
             val botonSeleccionado: RadioButton = findViewById(rg.checkedRadioButtonId)
             when (botonSeleccionado.text) {
                 "Crear Tarea" -> {
                     var intencion = Intent(Intent(this, CreacionActivity::class.java))
+                    intencion.putExtra("tipo", "Tarea")
                     startActivity(intencion)
                 }
 

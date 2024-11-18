@@ -36,14 +36,4 @@
             android:layout_height="wrap_content"
             android:text="Crear Tarea" />
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvResultato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="resultato"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>
